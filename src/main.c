@@ -1,54 +1,61 @@
-https://github.com/EAxxx/contador-de-palavras.git
-/* Contador de palavras
- *
- * Este programa recebera uma serie de caracteres representando palavras em sua
- * entrada. Ao receber um caractere fim de linha ('\n'), deve imprimir na tela o
- * numero de palavras separadas que recebeu e, apos, encerrar.
-*/
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
-struct word { 
- char palavra[80]; 
- int ocorrencias; 
-};
 
-typedef struct word Word;
-
-Word *w;
-char aux[1000];
-
-
-void remov_pont(char frase[]) {
-	int i=0, j=0;
+int cont_pal(char frase[]){
+	int c=0, i=0;
 	
 	while(frase[i]!='\0' && frase[i]!='\n') {
-		if((frase[i]!='.') && (frase[i]!=',') && (frase[i]!=':') && (frase[i]!=';') && (frase[i]!='\"') && (frase[i]!='!') && (frase[i]!='?') && (frase[i]!='(') && (frase[i]!=')') && (frase[i]!='\'')){
-			aux[j]= frase[i];
-		j++;		
+		if(((frase[i]=='3') || (frase[i]=='0')) && ((frase[i+1]== '.') || (frase[i+1]==',')) && (frase[i+2]=='1')){
+			c++;
+			i++;	
 		}
-	i++;	
+		
+		if(((frase[i]=='1') || (frase[i]=='5')) && (frase[i+1]== ' ') ){
+			c++;
+			i++;
+		}
+		
+		if(((frase[i]=='E') ||(frase[i]=='e') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='R') ||(frase[i]=='r') ||(frase[i]=='Y') ||(frase[i]=='y') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='U') ||(frase[i]=='u') ||(frase[i]=='I') ||(frase[i]=='i') ||(frase[i]=='O') ||(frase[i]=='o')) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='A') ||(frase[i]=='a') ||(frase[i]=='S') ||(frase[i]=='s') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='G') ||(frase[i]=='g') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='K')|| (frase[i]=='k') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='L') ||(frase[i]=='l') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='X') ||(frase[i]=='x')) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		if(((frase[i]=='N') ||(frase[i]=='n')|| (frase[i]=='M') ||(frase[i]=='m') ) && ((frase[i+1]== ' ') || (frase[i+1]==',')|| (frase[i+1]=='.')|| (frase[i+1]==':')|| (frase[i+1]=='!')|| (frase[i+1]=='-')|| (frase[i+1]=='\0')|| (frase[i+1]=='\n'))) { 
+			c++;
+			i++;
+		}
+		else i++;
 	}
-	aux[i] = '\0';
-}
-
-
-int cont_pal(){
-	int c=1, i;
-	
-	for(i=0; aux[i]!='\n' && aux[i]!='\0'; i++){
-		if(aux[i]==' ' && aux[i+1]!=' '){
-			c=c+1;
-		}
-		else if (aux[i]=='-'){
-			c=c+1;
-		}
-	}
-	printf("%i \n", c);
-	printf("%s \n", aux);
-	return c;
+return c;	
 }
 
 int main(){
@@ -56,8 +63,7 @@ int main(){
 	int qnt;
 	
 	scanf("%[^\n]", frase);
-	remov_pont(frase);
-	qnt=cont_pal()+1; 
-	w=(Word*)malloc(qnt*sizeof(Word));	
-	free(w); 
+	qnt=cont_pal(frase);
+	printf("%i\n", qnt); 
+	
 }
